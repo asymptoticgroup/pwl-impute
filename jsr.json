@@ -1,6 +1,6 @@
 {
 	"name": "@asymptoticgroup/pwl-impute",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"exports": "./mod.ts",
 	"exclude": ["./test.ts", "./.github"]
 }

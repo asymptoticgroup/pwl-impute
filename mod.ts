@@ -1,13 +1,29 @@
-import Matrix from "jsr:@asymptoticgroup/symba@0.0.5";
+import Matrix from "jsr:@asymptoticgroup/symba@1.0";
 
 /**
- * Fill in missing values in a list of points in a reasonable manner.
- * @param points The list of points
+ * Fill in missing (NaN) values in a list of points in a reasonable manner.
+ *
+ * @param points The list of points to update in place
  * @param x The x-coordinate property
  * @param y The y-coordinate property
  * @param x0 The "central" x-value to fill, if no other data available
  * @param y0 The "central" y-value to fill, if no other data available
- * @returns
+ *
+ * @example Illustrated usage
+ * ```ts
+ * const points = [
+ *  { x: 0.5, y: 1 },
+ *  { x: 2, y: Number.NaN },
+ *  { x: Number.NaN, y: 2 },
+ *  { x: 3, y: 3 },
+ * ];
+ *
+ * impute(points, "x", "y", 0, 0);
+ *
+ * // `impute` has updated `points` as follows:
+ * // points[1].y === 1.5
+ * // points[2].x === 2.5
+ * ```
  */
 export default function impute<
   X extends string | symbol,
